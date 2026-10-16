@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>掌上台球 · 8 球</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game"></canvas>
+
+    <!-- 顶部 HUD -->
+    <div id="hud" class="hidden">
+      <div class="panel" id="p0">
+        <div class="name">玩家1</div>
+        <div class="group">—</div>
+      </div>
+      <div class="center">
+        <div id="turnTip">轮到你</div>
+        <div id="msg"></div>
+      </div>
+      <div class="panel right" id="p1">
+        <div class="name">玩家2</div>
+        <div class="group">—</div>
+      </div>
+      <button id="btnSound" class="ghost">🔊</button>
+      <button id="btnMenu" class="ghost">菜单</button>
+    </div>
+
+    <!-- 主菜单 -->
+    <div id="menu">
+      <div class="card">
+        <h1>掌上台球 · 8 球</h1>
+        <p class="sub">移动端横屏 · 离线人机 / 双人 · 在线对战</p>
+        <div class="modes">
+          <button data-mode="ai">离线 · 人机对战</button>
+          <button data-mode="2p">离线 · 双人对战</button>
+          <button data-mode="online-create">在线 · 创建房间</button>
+          <button data-mode="online-quick">在线 · 快速匹配</button>
+          <button data-mode="online-join">在线 · 加入房间</button>
+        </div>
+        <div id="onlineBox" class="hidden">
+          <input id="roomInput" maxlength="4" placeholder="输入 4 位房间号" />
+          <button id="joinBtn">加入</button>
+        </div>
+        <div id="diffBox" class="hidden">
+          <span class="difflabel">AI 难度</span>
+          <button data-diff="easy">简单</button>
+          <button data-diff="normal">普通</button>
+          <button data-diff="hard">困难</button>
+        </div>
+        <div id="roomInfo" class="hidden">
+          <div>房间号：</div>
+          <div id="roomCode" class="code">----</div>
+          <div id="roomStatus">等待对手加入…</div>
+        </div>
+        <div class="hint">提示：按住屏幕向母球反方向拉动即可蓄力击球，松手发射。</div>
+      </div>
+    </div>
+
+    <!-- 竖屏提示 -->
+    <div id="rotateHint" class="hidden">
+      <div>请将手机横置以获得最佳体验</div>
+    </div>
+
+    <!-- 结算遮罩 -->
+    <div id="overlay" class="overlay hidden">
+      <div class="card">
+        <div id="overTitle">对局结束</div>
+        <div id="overSub" class="sub"></div>
+        <div class="modes">
+          <button id="btnRematch">再来一局</button>
+          <button id="btnToMenu" class="ghost2">返回菜单</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 网络状态遮罩 -->
+    <div id="netOverlay" class="overlay hidden">
+      <div class="card">
+        <div id="netStatus">连接断开…</div>
+        <div class="modes"><button id="netToMenu" class="ghost2">返回菜单</button></div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

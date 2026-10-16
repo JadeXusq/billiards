@@ -1,0 +1,13 @@
+{
+  "name": "billiards-mobile",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "移动端横屏 8 球台球：离线人机/双人 + 在线对战（Node + 零依赖 WebSocket 权威服务端）",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node test/physics.test.mjs",
+    "test:client": "node test/browser_harness.mjs && node test/browser_harness2.mjs",
+    "test:online": "node test/ws_smoke.mjs"
+  }
+}
